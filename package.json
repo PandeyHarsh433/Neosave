@@ -1,5 +1,5 @@
 {
-  "name": "spendly",
+  "name": "neosave",
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
