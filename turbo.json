@@ -1,21 +1,47 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
+  "globalDependencies": ["**/.env*"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+      "inputs": ["$TURBO_DEFAULT$", ".env*", "tsconfig.json"],
+      "outputs": ["dist/**", "build/**"]
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "start:dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".eslintrc*", "eslint.config.*"]
+    },
+    "lint:fix": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".eslintrc*", "eslint.config.*"],
+      "cache": false
+    },
+    "type-check": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "tsconfig.json", "**/*.ts", "**/*.tsx"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "**/*.test.*", "**/*.spec.*"]
+    },
+    "clean": {
+      "cache": false
     }
   }
 }

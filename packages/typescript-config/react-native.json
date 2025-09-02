@@ -1,0 +1,22 @@
+{
+  "extends": "./base.json",
+  "compilerOptions": {
+    "target": "ES2019",
+    "lib": ["ES2019", "ES2020.Promise", "ES2020.String", "ES2020.Symbol.WellKnown"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": false,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "composite": false,
+    "incremental": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@repo/ui/*": ["../packages/ui/src/*"]
+    },
+    "types": ["react", "react-native", "jest"]
+  }
+}
