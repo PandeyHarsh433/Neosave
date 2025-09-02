@@ -1,24 +1,12 @@
 {
-  "extends": "./base.json",
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES2021",
-    "lib": ["ES2021"],
-    "moduleResolution": "Node",
-    "allowImportingTsExtensions": false,
-    "noEmit": false,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "composite": false,
-    "incremental": true,
-    "tsBuildInfoFile": "./dist/.tsbuildinfo",
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
+    "target": "ES2021",
+    "module": "commonjs",
+    "lib": ["ES2021"],
+    "skipLibCheck": true,
+    "strict": false
   }
 }
